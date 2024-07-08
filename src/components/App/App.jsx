@@ -1,7 +1,12 @@
-import './App.css';
+import css from './App.module.css';
 
-function App() {
-  return <>App</>;
+export default function App() {
+  return (
+    <div className={css.contPhonebook}>
+      <h1>Phonebook</h1>
+      <ContactForm />
+      <SearchBox />
+      <ContactList />
+    </div>
+  );
 }
-
-export default App;
