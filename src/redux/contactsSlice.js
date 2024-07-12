@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { persistReducer } from 'redux-persist';
+import storage from 'redux-persist/lib/storage';
 
 const contactsSlice = createSlice({
   name: 'contacts',
@@ -12,8 +13,12 @@ const contactsSlice = createSlice({
     ],
   },
   reducers: {
-    addContact: (state, action) => {},
-    deleteContact: (state, action) => {},
+    addContact: (state, action) => {
+      state.items.push(action.payload);
+    },
+    deleteContact: (state, action) => {
+      state.items = state.items.filter(contact => contact.id !== action.payload);
+    },
   },
 });
 
