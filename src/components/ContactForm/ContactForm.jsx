@@ -23,7 +23,11 @@ export default function ContactForm() {
 
   const contactSchema = Yup.object().shape({
     name: Yup.string().trim().min(3, 'Too Short!').max(50, 'Too Long!').required('Required'),
-    number: Yup.string().min(3, 'Too Short!').max(50, 'Too Long!').required('Required'),
+    number: Yup.string()
+      .min(3, 'Too Short!')
+      .max(50, 'Too Long!')
+      .required('Required')
+      .matches(/^[\d-]+$/, 'Number can only contain digits and dashes'),
   });
 
   return (
