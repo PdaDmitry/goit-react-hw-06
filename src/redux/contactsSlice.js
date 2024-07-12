@@ -23,11 +23,12 @@ const contactsSlice = createSlice({
 });
 
 export const { addContact, deleteContact } = contactsSlice.actions;
+export const selectContacts = state => state.contacts.items;
 
 const persistConfig = {
   key: 'contacts',
   storage,
-  //   whitelist: ['value'],
+  // whitelist: ['items'],
   // blacklist: ['a'],
 };
 
